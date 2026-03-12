@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Vault | Secure Password Vault</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" defer src="./js/main.js"></script>
+</head>
+<body class="page" data-page="vault">
+    <div class="drawer-overlay" data-sidebar-overlay></div>
+    <aside class="drawer" data-sidebar>
+        <div class="drawer-header">
+            <div class="brand">
+                <span class="brand-badge">S</span>
+                <span>Secure Password Vault</span>
+            </div>
+            <button class="menu-button" type="button" data-sidebar-close aria-label="Close sidebar">
+                <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="drawer-link" href="./dashboard.html">Dashboard</a>
+            <a class="drawer-link active" href="./vault.html">Personal Vault</a>
+            <a class="drawer-link" href="./team-vault.html">Team Vault</a>
+            <button class="drawer-link active" type="button" data-panel-target="vault-overview">Vault Settings</button>
+            <button class="drawer-link" id="reset-master-key" type="button" data-panel-target="reset-master-key-panel">Reset Master Key</button>
+            <button class="drawer-link" id="forgot-master-key" type="button" data-panel-target="forgot-master-key-panel">Forgot Master Key</button>
+            <button class="drawer-link" type="button" data-panel-target="export-vault-panel">Export Vault</button>
+            <button class="drawer-link" id="security-settings" type="button" data-panel-target="security-settings-panel">Security Settings</button>
+            <button id="sidebar-logout-button" class="button-secondary" type="button">Logout</button>
+        </nav>
+    </aside>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-left">
+                <button class="menu-button" type="button" data-sidebar-open aria-label="Open sidebar">
+                    <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+                </button>
+                <a class="brand" href="./dashboard.html">
+                    <span class="brand-badge">S</span>
+                    <span>Secure Password Vault</span>
+                </a>
+            </div>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a class="nav-link" href="./dashboard.html">Dashboard</a>
+                    <a class="nav-link active" href="./vault.html">Personal Vault</a>
+                    <a class="nav-link" href="./team-vault.html">Team Vault</a>
+                    <button id="logout-button" class="button-muted" type="button">Logout</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container vault-toolbar">
+            <div>
+                <p class="eyebrow">Encrypted Storage</p>
+                <h1>Personal Vault</h1>
+                <p class="lead">Store encrypted credentials, unlock them once per session, and export secure vault backups whenever needed.</p>
+            </div>
+            <div class="toolbar-actions">
+                <button id="focus-add-password" class="button" type="button">Add Password</button>
+                <button id="export-backup" class="button-secondary" type="button">Backup Vault</button>
+            </div>
+        </section>
+
+        <section class="container vault-layout">
+            <article class="card">
+                <div class="page-intro" style="padding: 0;">
+                    <div>
+                        <p class="eyebrow">Vault Access</p>
+                        <h2>Session unlocked</h2>
+                    </div>
+                    <span id="unlock-status" class="unlock-status">Locked</span>
+                </div>
+                <p id="master-key-note" class="muted" style="margin-top: 16px;">You reached the vault after entering your master key on the separate unlock page. This vault stays open only for the current browser session.</p>
+                <div class="button-row" style="margin-top: 16px;">
+                    <a class="button-muted" href="./vault-unlock.html">Re-enter Master Key</a>
+                    <button id="lock-vault-session" class="button" type="button">Lock This Session</button>
+                </div>
+            </article>
+
+            <section class="two-column">
+                <article class="card" id="password-form-card">
+                    <p class="eyebrow">Credential Editor</p>
+                    <h2 id="vault-form-title">Add password</h2>
+                    <form id="vault-form" class="form-stack" style="margin-top: 16px;">
+                        <input id="vault-id" type="hidden">
+
+                        <label for="website">Website</label>
+                        <input id="website" type="text" required>
+
+                        <label for="username">Username</label>
+                        <input id="username" type="text" required>
+
+                        <label for="password">Password</label>
+                        <input id="password" type="password" required>
+
+                        <div class="button-row">
+                            <button class="button" type="submit">Save encrypted entry</button>
+                            <button id="reset-vault-form" class="button-muted" type="button">Clear form</button>
+                        </div>
+                    </form>
+                </article>
+
+                <div>
+                    <article class="settings-card active" data-panel="vault-overview">
+                        <p class="eyebrow">Vault Settings</p>
+                        <h2>Overview</h2>
+                        <p class="muted">Use the sidebar to switch between security tools without leaving the vault workspace.</p>
+                    </article>
+                    <article class="settings-card" data-panel="reset-master-key-panel">
+                        <p class="eyebrow">Security Tool</p>
+                        <h2>Reset Master Key</h2>
+                        <p class="muted">Resetting the saved master key requires re-encrypting all existing entries. Keep the current key stable during the demo.</p>
+                    </article>
+                    <article class="settings-card" data-panel="forgot-master-key-panel">
+                        <p class="eyebrow">Security Tool</p>
+                        <h2>Forgot Master Key</h2>
+                        <p class="muted">If the original key is lost, stored entries cannot be decrypted. Keep encrypted backups safe.</p>
+                    </article>
+                    <article class="settings-card" data-panel="export-vault-panel">
+                        <p class="eyebrow">Security Tool</p>
+                        <h2>Export Vault</h2>
+                        <p class="muted">Use Backup Vault to export encrypted data only. No plaintext passwords are included in exports.</p>
+                    </article>
+                    <article class="settings-card" data-panel="security-settings-panel">
+                        <p class="eyebrow">Security Tool</p>
+                        <h2>Security Settings</h2>
+                        <p class="muted">Clipboard copying clears after 10 seconds. Use long master keys and change them carefully.</p>
+                    </article>
+                    <div id="vault-message" class="message" style="margin-top: 16px;"></div>
+                    <label class="button-muted" style="display: inline-flex; margin-top: 14px;">
+                        Import Backup
+                        <input id="import-backup" class="hidden" type="file" accept=".enc,application/json">
+                    </label>
+                </div>
+            </section>
+
+            <article class="table-card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Website</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vault-table-body"></tbody>
+                    </table>
+                </div>
+                <div class="card" style="border-radius: 0 0 var(--radius-xl) var(--radius-xl); border: 0; box-shadow: none;">
+                    <p id="vault-empty-state" class="muted"></p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Secure Encrypted Data</p>
+        </div>
+    </footer>
+</body>
+</html>

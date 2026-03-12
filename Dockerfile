@@ -1,0 +1,21 @@
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PORT=8000
+
+WORKDIR /app
+
+COPY backend/requirements.txt /app/backend/requirements.txt
+RUN pip install --upgrade pip && pip install -r /app/backend/requirements.txt
+
+COPY backend /app/backend
+COPY frontend /app/frontend
+COPY database /app/database
+COPY docs /app/docs
+COPY README.md /app/README.md
+
+WORKDIR /app/backend
+
+CMD ["sh", "-c", "gunicorn main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT}"]

@@ -1,2 +1,8 @@
 fastapi
-uvicorn
+uvicorn[standard]
+gunicorn
+python-dotenv
+supabase
+bcrypt
+python-jose[cryptography]
+pydantic[email]

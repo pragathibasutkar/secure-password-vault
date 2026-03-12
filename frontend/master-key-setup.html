@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Master Key | Secure Password Vault</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" defer src="./js/main.js"></script>
+</head>
+<body class="page" data-page="master-key-setup">
+    <header class="site-header">
+        <div class="container">
+            <div class="header-left">
+                <a class="brand" href="./dashboard.html">
+                    <span class="brand-badge">S</span>
+                    <span>Secure Password Vault</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-shell container">
+            <article class="auth-card">
+                <p class="eyebrow">Vault Security</p>
+                <h1>Create your master key</h1>
+                <p class="lead">This is created once for your account and will be required every time you log in before the vault opens.</p>
+
+                <form id="master-key-setup-form" class="form-stack" style="margin-top: 22px;">
+                    <label for="master-key">Master key</label>
+                    <input id="master-key" name="master_key" type="password" minlength="8" autocomplete="new-password" required>
+
+                    <label for="master-key-confirm">Confirm master key</label>
+                    <input id="master-key-confirm" name="confirm_master_key" type="password" minlength="8" autocomplete="new-password" required>
+
+                    <button class="button" type="submit">Create Master Key</button>
+                    <div id="master-key-message" class="message"></div>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Secure Encrypted Data</p>
+        </div>
+    </footer>
+</body>
+</html>

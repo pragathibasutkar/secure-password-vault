@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Vault | Secure Password Vault</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" defer src="./js/main.js"></script>
+</head>
+<body class="page" data-page="vault-unlock">
+    <header class="site-header">
+        <div class="container">
+            <div class="header-left">
+                <a class="brand" href="./dashboard.html">
+                    <span class="brand-badge">S</span>
+                    <span>Secure Password Vault</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-shell container">
+            <article class="auth-card">
+                <p class="eyebrow">Vault Security</p>
+                <h1>Unlock your vault</h1>
+                <p class="lead">Enter the master key you created earlier. Only after this step can you view or edit stored passwords.</p>
+
+                <form id="vault-unlock-form" class="form-stack" style="margin-top: 22px;">
+                    <label for="unlock-master-key">Master key</label>
+                    <input id="unlock-master-key" name="master_key" type="password" autocomplete="current-password" required>
+
+                    <button class="button" type="submit">Unlock Vault</button>
+                    <div id="vault-unlock-message" class="message"></div>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Secure Encrypted Data</p>
+        </div>
+    </footer>
+</body>
+</html>

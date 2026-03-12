@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Secure Password Vault</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" defer src="./js/main.js"></script>
+</head>
+<body class="page" data-page="dashboard">
+    <div class="drawer-overlay" data-sidebar-overlay></div>
+    <aside class="drawer" data-sidebar>
+        <div class="drawer-header">
+            <div class="brand">
+                <span class="brand-badge">S</span>
+                <span>Secure Password Vault</span>
+            </div>
+            <button class="menu-button" type="button" data-sidebar-close aria-label="Close sidebar">
+                <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="drawer-link active" href="./dashboard.html">Dashboard</a>
+            <a class="drawer-link" href="./vault.html">Personal Vault</a>
+            <a class="drawer-link" href="./team-vault.html">Team Vault</a>
+            <a class="drawer-link" href="./vault.html#reset-master-key">Reset Master Key</a>
+            <a class="drawer-link" href="./vault.html#forgot-master-key">Forgot Master Key</a>
+            <a class="drawer-link" href="./vault.html#security-settings">Security Settings</a>
+            <button id="sidebar-logout-button" class="button-secondary" type="button">Logout</button>
+        </nav>
+    </aside>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-left">
+                <button class="menu-button" type="button" data-sidebar-open aria-label="Open sidebar">
+                    <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+                </button>
+                <a class="brand" href="./dashboard.html">
+                    <span class="brand-badge">S</span>
+                    <span>Secure Password Vault</span>
+                </a>
+            </div>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a class="nav-link active" href="./dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="./vault.html">Personal Vault</a>
+                    <a class="nav-link" href="./team-vault.html">Team Vault</a>
+                    <button id="logout-button" class="button-muted" type="button">Logout</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container page-intro">
+            <div>
+                <p class="eyebrow">Security Overview</p>
+                <h1>Dashboard</h1>
+                <p class="lead">A structured summary of your vault activity, strength posture, and recent account state.</p>
+            </div>
+        </section>
+
+        <section class="container stat-grid">
+            <article class="stat-card">
+                <p class="eyebrow">Overview</p>
+                <h2>Total Passwords</h2>
+                <div id="vault-count" class="stat-value">0</div>
+            </article>
+            <article class="stat-card">
+                <p class="eyebrow">Posture</p>
+                <h2>Security Score</h2>
+                <div class="stat-value">88</div>
+            </article>
+            <article class="stat-card">
+                <p class="eyebrow">Risk</p>
+                <h2>Weak Passwords</h2>
+                <div class="stat-value">0</div>
+            </article>
+            <article class="stat-card">
+                <p class="eyebrow">Activity</p>
+                <h2>Recent Activity</h2>
+                <div id="team-count" class="stat-value">0</div>
+            </article>
+        </section>
+
+        <section class="container two-column page-section">
+            <article class="card">
+                <p class="eyebrow">Session</p>
+                <h2>Current access</h2>
+                <p id="session-email" class="muted"></p>
+                <p class="muted">Your encrypted vault remains locked until you unlock it locally with the master key.</p>
+            </article>
+            <article class="card">
+                <p class="eyebrow">Recent Activity</p>
+                <h2>What to do next</h2>
+                <ul class="muted">
+                    <li>Open Personal Vault to add or review encrypted credentials.</li>
+                    <li>Open Team Vault for shared credential workflows.</li>
+                    <li>Use backups regularly and keep your master key memorable.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Secure Encrypted Data</p>
+        </div>
+    </footer>
+</body>
+</html>

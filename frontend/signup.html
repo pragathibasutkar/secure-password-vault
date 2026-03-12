@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Secure Password Vault</title>
+    <title>Create Account | Secure Password Vault</title>
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
     <script type="module" defer src="./js/main.js"></script>
 </head>
-<body class="page" data-page="login">
+<body class="page" data-page="signup">
     <div class="drawer-overlay" data-sidebar-overlay></div>
     <aside class="drawer" data-sidebar>
         <div class="drawer-header">
@@ -22,8 +22,8 @@
         </div>
         <nav class="drawer-nav">
             <a class="drawer-link" href="./index.html">Home</a>
-            <a class="drawer-link active" href="./login.html">Login</a>
-            <a class="drawer-link" href="./signup.html">Create Account</a>
+            <a class="drawer-link" href="./login.html">Login</a>
+            <a class="drawer-link active" href="./signup.html">Create Account</a>
         </nav>
     </aside>
 
@@ -40,8 +40,8 @@
             </div>
             <div class="header-right">
                 <nav class="nav-links">
-                    <a class="nav-link active" href="./login.html">Login</a>
-                    <a class="nav-link" href="./signup.html">Create Account</a>
+                    <a class="nav-link" href="./login.html">Login</a>
+                    <a class="nav-link active" href="./signup.html">Create Account</a>
                 </nav>
             </div>
         </div>
@@ -50,22 +50,22 @@
     <main>
         <section class="auth-shell container">
             <article class="auth-card">
-                <p class="eyebrow">Authentication</p>
-                <h1>Sign in</h1>
-                <p class="lead">Access your personal vault and team secrets through a structured, security-first interface.</p>
+                <p class="eyebrow">Create Account</p>
+                <h1>Set up your vault account</h1>
+                <p class="lead">Create the account that will connect to your encrypted vault. Your vault master key stays local.</p>
 
-                <form id="login-form" class="form-stack" style="margin-top: 22px;">
-                    <label for="login-email">Email</label>
-                    <input id="login-email" name="email" type="email" autocomplete="email" required>
+                <form id="signup-form" class="form-stack" style="margin-top: 22px;">
+                    <label for="signup-email">Email</label>
+                    <input id="signup-email" name="email" type="email" autocomplete="email" required>
 
-                    <label for="login-password">Password</label>
-                    <input id="login-password" name="password" type="password" autocomplete="current-password" required minlength="8">
+                    <label for="signup-password">Password</label>
+                    <input id="signup-password" name="password" type="password" autocomplete="new-password" required minlength="8">
                     <div class="strength-meter">
-                        <div id="login-strength-bar" class="strength-fill weak"></div>
+                        <div id="signup-strength-bar" class="strength-fill weak"></div>
                     </div>
-                    <small id="login-strength-text" class="muted">Password strength: Weak</small>
+                    <small id="signup-strength-text" class="muted">Password strength: Weak</small>
 
-                    <section id="login-captcha" class="captcha-box">
+                    <section id="signup-captcha" class="captcha-box">
                         <input type="hidden" name="captcha_token" value="">
                         <label>Captcha verification</label>
                         <div class="captcha-row" data-captcha-demo>
@@ -79,16 +79,15 @@
                             <button data-captcha-verify class="button-secondary" type="button">Verify</button>
                             <button data-captcha-reset class="button-muted" type="button">Refresh</button>
                         </div>
-                        <p class="captcha-status" data-captcha-status>Complete verification before login.</p>
+                        <p class="captcha-status" data-captcha-status>Verification is required before account creation.</p>
                     </section>
 
-                    <button class="button" type="submit">Login</button>
+                    <button class="button" type="submit">Create Account</button>
                     <div id="auth-message" class="message"></div>
                 </form>
 
                 <div class="auth-links">
-                    <a href="./forgot-password.html">Forgot Password</a>
-                    <a href="./signup.html">Create Account</a>
+                    <a href="./login.html">Already have an account?</a>
                 </div>
             </article>
         </section>

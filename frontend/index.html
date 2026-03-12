@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Password Vault</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" defer src="./js/main.js"></script>
+</head>
+<body class="page" data-page="home">
+    <div class="drawer-overlay" data-sidebar-overlay></div>
+    <aside class="drawer" data-sidebar>
+        <div class="drawer-header">
+            <div class="brand">
+                <span class="brand-badge">S</span>
+                <span>Secure Password Vault</span>
+            </div>
+            <button class="menu-button" type="button" data-sidebar-close aria-label="Close sidebar">
+                <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="drawer-link active" href="./index.html">Home</a>
+            <a class="drawer-link" href="./login.html">Login</a>
+            <a class="drawer-link" href="./signup.html">Create Account</a>
+        </nav>
+    </aside>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-left">
+                <button class="menu-button" type="button" data-sidebar-open aria-label="Open sidebar">
+                    <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+                </button>
+                <a class="brand" href="./index.html">
+                    <span class="brand-badge">S</span>
+                    <span>Secure Password Vault</span>
+                </a>
+            </div>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a class="nav-link" href="./login.html">Login</a>
+                    <a class="nav-link" href="./signup.html">Create Account</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container hero">
+            <div class="hero-panel">
+                <p class="eyebrow">Cybersecurity-grade vault</p>
+                <h1>Secure Your Passwords with Zero-Knowledge Encryption</h1>
+                <p class="lead">
+                    Store credentials in an encrypted vault, unlock them locally, and keep shared access structured for modern
+                    teams. The service stores encrypted data only, not readable passwords.
+                </p>
+                <div class="button-row" style="margin-top: 24px;">
+                    <a class="button" href="./signup.html">Get Started</a>
+                    <a class="button-muted" href="./login.html">Login</a>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <p class="eyebrow">Why teams use it</p>
+                <h2>Minimal interface, strong control</h2>
+                <p class="lead">
+                    Designed for secure access, rapid retrieval, and clean separation between account recovery and vault
+                    decryption.
+                </p>
+            </div>
+        </section>
+
+        <section class="container feature-grid">
+            <article class="feature-card">
+                <p class="eyebrow">Feature</p>
+                <h2>Password Generator</h2>
+                <p>Create and manage stronger credentials inside a structured security workspace.</p>
+            </article>
+            <article class="feature-card">
+                <p class="eyebrow">Feature</p>
+                <h2>Encrypted Vault Storage</h2>
+                <p>All sensitive entries are encrypted before they reach the backend.</p>
+            </article>
+            <article class="feature-card">
+                <p class="eyebrow">Feature</p>
+                <h2>Team Vault Collaboration</h2>
+                <p>Support shared access for admins, members, and viewers with a consistent layout.</p>
+            </article>
+            <article class="feature-card">
+                <p class="eyebrow">Feature</p>
+                <h2>Clipboard Protection</h2>
+                <p>Copied secrets are cleared from the clipboard automatically after a short delay.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Secure Encrypted Data</p>
+        </div>
+    </footer>
+</body>
+</html>

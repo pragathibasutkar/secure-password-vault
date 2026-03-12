@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Vault | Secure Password Vault</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" defer src="./js/main.js"></script>
+</head>
+<body class="page" data-page="team-vault">
+    <div class="drawer-overlay" data-sidebar-overlay></div>
+    <aside class="drawer" data-sidebar>
+        <div class="drawer-header">
+            <div class="brand">
+                <span class="brand-badge">S</span>
+                <span>Secure Password Vault</span>
+            </div>
+            <button class="menu-button" type="button" data-sidebar-close aria-label="Close sidebar">
+                <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="drawer-link" href="./dashboard.html">Dashboard</a>
+            <a class="drawer-link" href="./vault.html">Personal Vault</a>
+            <a class="drawer-link active" href="./team-vault.html">Team Vault</a>
+            <button id="sidebar-logout-button" class="button-secondary" type="button">Logout</button>
+        </nav>
+    </aside>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-left">
+                <button class="menu-button" type="button" data-sidebar-open aria-label="Open sidebar">
+                    <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+                </button>
+                <a class="brand" href="./dashboard.html">
+                    <span class="brand-badge">S</span>
+                    <span>Secure Password Vault</span>
+                </a>
+            </div>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a class="nav-link" href="./dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="./vault.html">Personal Vault</a>
+                    <a class="nav-link active" href="./team-vault.html">Team Vault</a>
+                    <button id="logout-button" class="button-muted" type="button">Logout</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container vault-toolbar">
+            <div>
+                <p class="eyebrow">Shared Access</p>
+                <h1>Team Vault</h1>
+                <p class="lead">Create teams, add members, and manage shared encrypted credentials with a common passphrase.</p>
+            </div>
+        </section>
+
+        <section class="container two-column" style="padding-bottom: 22px;">
+            <article class="card">
+                <p class="eyebrow">Team Setup</p>
+                <h2>Create team</h2>
+                <form id="create-team-form" class="form-stack" style="margin-top: 16px;">
+                    <label for="team-name">Team name</label>
+                    <input id="team-name" name="name" type="text" required>
+                    <button class="button" type="submit">Create Team</button>
+                </form>
+            </article>
+
+            <article class="card">
+                <p class="eyebrow">Members</p>
+                <h2>Add member</h2>
+                <form id="add-member-form" class="form-stack" style="margin-top: 16px;">
+                    <label for="member-team-id">Team ID</label>
+                    <input id="member-team-id" name="team_id" type="text" required>
+
+                    <label for="member-email">Member email</label>
+                    <input id="member-email" name="email" type="email" required>
+
+                    <label for="member-role">Role</label>
+                    <select id="member-role" name="role">
+                        <option value="member">Member</option>
+                        <option value="viewer">Viewer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+
+                    <button class="button-secondary" type="submit">Add Member</button>
+                </form>
+            </article>
+        </section>
+
+        <section class="container two-column" style="padding-bottom: 22px;">
+            <article class="card">
+                <p class="eyebrow">Vault Access</p>
+                <h2>Load team vault</h2>
+                <form id="load-team-form" class="form-stack" style="margin-top: 16px;">
+                    <label for="team-id">Team ID</label>
+                    <input id="team-id" type="text" required>
+
+                    <label for="team-passphrase">Shared team passphrase</label>
+                    <input id="team-passphrase" type="password" required>
+
+                    <button class="button" type="submit">Load Vault</button>
+                </form>
+            </article>
+
+            <article class="card">
+                <p class="eyebrow">Encrypted Entry</p>
+                <h2 id="team-form-title">Add team entry</h2>
+                <form id="team-vault-form" class="form-stack" style="margin-top: 16px;">
+                    <input id="team-entry-id" type="hidden">
+
+                    <label for="team-website">Website</label>
+                    <input id="team-website" type="text" required>
+
+                    <label for="team-username">Username</label>
+                    <input id="team-username" type="text" required>
+
+                    <label for="team-password">Password</label>
+                    <input id="team-password" type="password" required>
+
+                    <button class="button-secondary" type="submit">Save Team Entry</button>
+                </form>
+                <div id="team-message" class="message" style="margin-top: 16px;"></div>
+            </article>
+        </section>
+
+        <section class="container" style="padding-bottom: 34px;">
+            <article class="table-card">
+                <div class="card" style="padding-bottom: 12px; border-radius: var(--radius-xl) var(--radius-xl) 0 0; box-shadow: none; border: 0; border-bottom: 1px solid var(--border);">
+                    <p class="eyebrow">Team Passwords</p>
+                    <h2>Shared credentials</h2>
+                    <p id="team-empty-state" class="muted" style="margin-top: 10px;">Load a team vault to see shared entries.</p>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Website</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="team-table-body"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Secure Encrypted Data</p>
+        </div>
+    </footer>
+</body>
+</html>

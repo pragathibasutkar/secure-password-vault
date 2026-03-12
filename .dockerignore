@@ -1,0 +1,9 @@
+.git
+.gitignore
+.venv
+.venv-1
+backend/.env
+backend/venv
+backend/__pycache__
+frontend/.DS_Store
+docs/.DS_Store
